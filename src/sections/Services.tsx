@@ -24,8 +24,8 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section className="py-24 px-4">
-      <h2 className="text-3xl font-bold text-center mb-16">
+    <section id="services" className="min-h-screen gap-6 py-24 px-4 bg-white max-w-5xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
         Servicios
       </h2>
 
@@ -33,7 +33,7 @@ export default function Services() {
         {services.map((service, index) => (
           <div
             key={index}
-            className="p-6 rounded-xl border hover:shadow-2xl hover:-translate-y-1 transition duration-300"
+            className="p-6 rounded-xl border hover:shadow-xl hover:-translate-y-1 transition duration-300 bg-white"
           >
             <h3 className="text-xl font-semibold mb-3">
               {service.title}

@@ -23,3 +23,11 @@ body {
   background-color: #ffffff;
   color: #111827;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
