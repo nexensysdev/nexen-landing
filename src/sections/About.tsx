@@ -1,30 +1,45 @@
 export default function About() {
   return (
-    <section id="about" className="gap-6 py-24 px-4 bg-white max-w-5xl mx-auto">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16">Sobre mí</h2>
+   <section
+  id="about"
+  className="pt-16 pb-24 px-4 max-w-4xl mx-auto scroll-mt-24"
+>
+  <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+    Sobre mí
+  </h2>
+ <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-3 mb-8" />
+  <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+    Soy desarrollador web con experiencia en la creación de soluciones prácticas y orientadas a resultados. 
+    Combino más de 20 años de experiencia profesional con conocimientos modernos en desarrollo para construir productos sólidos y funcionales.
+  </p>
 
-        <p className="text-gray-700 leading-relaxed">
-          Soy desarrollador web en transición desde una carrera de más de 20
-          años en el ámbito administrativo, donde adquirí experiencia en
-          organización, responsabilidad y trabajo con sistemas reales.
-        </p>
+  <div className="grid gap-6 md:grid-cols-3">
+    
+    <div className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+      <h3 className="font-semibold mb-2">Experiencia</h3>
+      <p className="text-sm text-gray-600">
+        Más de 20 años en entornos profesionales, entendiendo procesos reales de negocio.
+      </p>
+    </div>
 
-        <p className="text-gray-700 leading-relaxed">
-          Actualmente me enfoco en el desarrollo de aplicaciones web modernas,
-          con experiencia en backend, integración de APIs y soluciones
-          orientadas a resultados concretos.
-        </p>
+    <div className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+      <h3 className="font-semibold mb-2">Enfoque</h3>
+      <p className="text-sm text-gray-600">
+        Desarrollo soluciones claras, simples y enfocadas en resultados concretos.
+      </p>
+    </div>
 
-        <p className="text-gray-700 leading-relaxed">
-          Mi objetivo es ayudar a negocios a mejorar sus procesos y presencia
-          digital mediante herramientas eficientes y bien construidas.
-        </p>
-        <p className="text-gray-700 mt-4 font-medium">
-          Busco oportunidades donde pueda aportar valor real mientras continúo
-          creciendo como desarrollador.
-        </p>
-      </div>
-    </section>
+    <div className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
+      <h3 className="font-semibold mb-2">Tecnología</h3>
+      <p className="text-sm text-gray-600">
+        Trabajo con herramientas modernas como React, Node.js y bases de datos SQL y NoSQL.
+      </p>
+    </div>
+
+  </div>
+  <p className="text-center text-sm text-gray-500 mt-12">
+  Trabajo de forma independiente ayudando a negocios y proyectos a dar el siguiente paso digital.
+</p>
+</section>
   );
 }
