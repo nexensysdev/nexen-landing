@@ -22,7 +22,7 @@ export default function Contact() {
         </a>
 
         <a
-          href="mailto:tuemail@gmail.com"
+          href="mailto:nexensys@gmail.com"
           className="border border-[#D4AF37] text-[#D4AF37] px-6 py-3 rounded-md hover:bg-[#D4AF37] hover:text-black transition"
         >
           Enviar email
