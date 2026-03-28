@@ -33,7 +33,6 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 h-16 bg-[#121212]/90 backdrop-blur border-b border-white/10">
       <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-2 ">
         <div className="hidden md:flex gap-5 ">
-
           <a href="#services" className={linkClass("services")}>
             Servicios
           </a>
@@ -51,12 +50,12 @@ export default function Navbar() {
             className="transition duration-300 hover:scale-105"
           />
         </a>
-<button
-  className="md:hidden text-white text-2xl z-50"
-  onClick={() => setOpen(!open)}
->
-  ☰
-</button>
+        <button
+          className="md:hidden text-white text-2xl z-50"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
         <div className="hidden md:flex gap-5">
           <a href="#about" className={linkClass("about")}>
             Sobre mí
@@ -68,24 +67,35 @@ export default function Navbar() {
             Contacto
           </a>
         </div>
-        
       </div>
-    {open && (
-  <div className="md:hidden flex flex-col items-center gap-4 py-4 bg-[#121212] border-t border-white/10">
-    
-    <a href="#services" className="nav-link" onClick={() => setOpen(false)}>Servicios</a>
-    <a href="#portfolio" className="nav-link" onClick={() => setOpen(false)}>Proyectos</a>
-    <a href="#about" className="nav-link" onClick={() => setOpen(false)}>Sobre mí</a>
+      {open && (
+        <div className="md:hidden flex flex-col items-center gap-4 py-4 bg-[#121212] border-t border-white/10">
+          <a
+            href="#services"
+            className="nav-link"
+            onClick={() => setOpen(false)}
+          >
+            Servicios
+          </a>
+          <a
+            href="#portfolio"
+            className="nav-link"
+            onClick={() => setOpen(false)}
+          >
+            Proyectos
+          </a>
+          <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
+            Sobre mí
+          </a>
 
-    <a
-      href="#contact"
-      className="bg-[#D4AF37] text-black px-4 py-2 rounded-md font-medium onClick={() => setOpen(false)}"
-    >
-      Contacto
-    </a>
-  </div>
-)}  
+          <a
+            href="#contact"
+            className="bg-[#D4AF37] text-black px-4 py-2 rounded-md font-medium onClick={() => setOpen(false)}"
+          >
+            Contacto
+          </a>
+        </div>
+      )}
     </nav>
-    
   );
 }

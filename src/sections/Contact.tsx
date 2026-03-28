@@ -4,18 +4,15 @@ export default function Contact() {
       id="contact"
       className="pt-16 pb-24 px-4 max-w-3xl mx-auto text-center scroll-mt-24 bg-[#f7f7f7]"
     >
-
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">
-        Contacto
-      </h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">Contacto</h2>
       <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-3 mb-8" />
 
       <p className="text-gray-600 mb-10">
-        Si tenés una idea o proyecto, podemos hablar y ver cómo llevarlo a la práctica.
+        Si tenés una idea o proyecto, podemos hablar y ver cómo llevarlo a la
+        práctica.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        
         <a
           href="https://wa.me/5493462666122"
           target="_blank"
