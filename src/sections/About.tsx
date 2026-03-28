@@ -9,36 +9,38 @@ export default function About() {
   </h2>
  <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-3 mb-8" />
   <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-    Soy desarrollador web con experiencia en la creación de soluciones prácticas y orientadas a resultados. 
-    Combino más de 20 años de experiencia profesional con conocimientos modernos en desarrollo para construir productos sólidos y funcionales.
-  </p>
+  Soy desarrollador web enfocado en crear aplicaciones funcionales que resuelven problemas reales. 
+  Tengo experiencia construyendo soluciones fullstack con integración de pagos, lógica de negocio y conexión con bases de datos.
+
+  Combino más de 20 años de experiencia en entornos profesionales con tecnologías modernas para desarrollar productos sólidos, claros y listos para usarse.
+</p>
 
   <div className="grid gap-6 md:grid-cols-3">
     
     <div className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
       <h3 className="font-semibold mb-2">Experiencia</h3>
       <p className="text-sm text-gray-600">
-        Más de 20 años en entornos profesionales, entendiendo procesos reales de negocio.
-      </p>
+  Más de 20 años trabajando en entornos reales, entendiendo procesos, necesidades y cómo resolverlos con soluciones concretas.
+</p>
     </div>
 
     <div className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
       <h3 className="font-semibold mb-2">Enfoque</h3>
       <p className="text-sm text-gray-600">
-        Desarrollo soluciones claras, simples y enfocadas en resultados concretos.
-      </p>
+  Desarrollo aplicaciones simples de usar pero robustas por dentro, enfocadas en resolver problemas y mejorar procesos.
+</p>
     </div>
 
     <div className="p-6 rounded-xl border border-gray-100 bg-white shadow-sm">
       <h3 className="font-semibold mb-2">Tecnología</h3>
       <p className="text-sm text-gray-600">
-        Trabajo con herramientas modernas como React, Node.js y bases de datos SQL y NoSQL.
-      </p>
+  Trabajo con React, Node.js, PostgreSQL y MongoDB, construyendo aplicaciones modernas, rápidas y escalables.
+</p>
     </div>
 
   </div>
   <p className="text-center text-sm text-gray-500 mt-12">
-  Trabajo de forma independiente ayudando a negocios y proyectos a dar el siguiente paso digital.
+  Trabajo de forma independiente ayudando a negocios y proyectos a digitalizar procesos y construir soluciones web efectivas.
 </p>
 </section>
   );

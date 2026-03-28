@@ -30,7 +30,7 @@ export default function Navbar() {
   const linkClass = (id: string) => `nav-link ${active === id ? "active" : ""}`;
 
   return (
-    <nav className="sticky top-0 z-50 h-14 bg-[#121212]/90 backdrop-blur border-b border-white/10">
+    <nav className="sticky top-0 z-50 h-16 bg-[#121212]/90 backdrop-blur border-b border-white/10">
       <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-2 ">
         <div className="hidden md:flex gap-5 ">
 
@@ -44,10 +44,10 @@ export default function Navbar() {
 
         <a href="#home" className="flex flex-col items-center">
           <Image
-            src="/logo.png"
+            src="/logo1.png"
             alt="neXen logo"
-            width={60}
-            height={60}
+            width={80}
+            height={80}
             className="transition duration-300 hover:scale-105"
           />
         </a>

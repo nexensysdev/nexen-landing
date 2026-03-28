@@ -5,25 +5,21 @@ export default function Hero() {
       className="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 bg-linear-to-b from-[#363636] via-[#0f0f0f] to-black text-white"
     >
       <div className="max-w-2xl mx-auto">
-        
-        {/* TITULO */}
+
         <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
-          Desarrollo soluciones web que hacen crecer tu negocio
-        </h1>
+  Desarrollo aplicaciones web que impulsan resultados reales
+</h1>
 
-        {/* SUBTITULO */}
-        <p className="text-lg text-gray-300 mb-5">
-          Landing pages, aplicaciones y automatizaciones enfocadas en resultados reales
-        </p>
+<p className="text-lg text-gray-300 mb-5">
+  Soluciones a medida para negocios y emprendedores, con foco en rendimiento, automatización y escalabilidad
+</p>
 
-        <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-6 opacity-70" />
+<div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-6 opacity-70" />
 
-        {/* PRUEBA */}
-        <p className="text-sm text-gray-500 mb-8">
-          +20 años de experiencia profesional aplicados al desarrollo digital
-        </p>
+<p className="text-sm text-gray-400 mb-8">
+  Experiencia profesional aplicada a la creación de soluciones digitales funcionales
+</p>
 
-        {/* BOTONES */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <a
             href="#contact"
