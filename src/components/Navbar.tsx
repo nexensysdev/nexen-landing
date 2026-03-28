@@ -44,7 +44,7 @@ export default function Navbar() {
 
         <a href="#home" className="flex flex-col items-center">
           <Image
-            src="/logo1.png"
+            src="/logo.png"
             alt="neXen logo"
             width={80}
             height={80}
