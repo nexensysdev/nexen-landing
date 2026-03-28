@@ -14,7 +14,7 @@ export default function Contact() {
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
         <a
-          href="https://wa.me/5493462666122"
+          href="https://wa.me/5493462417291"
           target="_blank"
           className="bg-[#D4AF37] text-black px-6 py-3 rounded-md font-medium hover:bg-[#C9A227] transition"
         >

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexen | Desarrollo web y soluciones digitales",
+  title: "neXen | Desarrollo web y soluciones digitales",
   description:
     "Creamos aplicaciones web modernas. Soluciones a medida para empresas y proyectos.",
 };
