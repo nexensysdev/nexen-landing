@@ -21,6 +21,23 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    title: "Desarrollo Web en Argentina | neXen",
+    description:
+      "Creamos aplicaciones web modernas. Soluciones a medida para empresas y proyectos.",
+    url: "https://nexensys.ar",
+    siteName: "neXen",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg", // 👈 todavía no existe (lo creamos en el paso 2)
+        width: 1200,
+        height: 630,
+        alt: "neXen - Desarrollo web",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
