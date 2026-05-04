@@ -1,4 +1,10 @@
+"use client";
+
+import { useLanguage } from "@/components/LanguageProvider";
+
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="home"
@@ -6,19 +12,17 @@ export default function Hero() {
     >
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
-          Desarrollo aplicaciones web que impulsan resultados reales
+          {t.hero.title}
         </h1>
 
         <p className="text-lg text-gray-300 mb-5">
-          Soluciones a medida para negocios y emprendedores, con foco en
-          rendimiento, automatización y escalabilidad
+          {t.hero.description}
         </p>
 
         <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mb-6 opacity-70" />
 
         <p className="text-sm text-gray-400 mb-8">
-          Experiencia profesional aplicada a la creación de soluciones digitales
-          funcionales
+          {t.hero.note}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -26,14 +30,14 @@ export default function Hero() {
             href="#contact"
             className="bg-[#D4AF37] text-black px-6 py-3 rounded-md font-medium hover:bg-[#C9A227] transition"
           >
-            Solicitar presupuesto
+            {t.hero.quoteCta}
           </a>
 
           <a
             href="#portfolio"
             className="border border-[#D4AF37] text-[#D4AF37] px-6 py-3 rounded-md hover:bg-[#D4AF37] hover:text-black transition"
           >
-            Ver proyectos
+            {t.hero.projectsCta}
           </a>
         </div>
       </div>

@@ -1,53 +1,28 @@
+"use client";
+
 import Image from "next/image";
-
-type Project = {
-  title: string;
-  description: string;
-  highlight?: string;
-  repo: string;
-  demo?: string;
-  image: string;
-};
-
-const projects: Project[] = [
-  {
-    title: "Sistema de pedidos online con pagos integrados",
-    description:
-      "Aplicación web que permite a negocios gestionar pedidos y cobrar online en tiempo real. Incluye integración con Mercado Pago, automatización de notificaciones y reducción de errores manuales en el proceso de venta.",
-    highlight: "Ideal para negocios que quieren vender online sin complicaciones",
-    repo: "https://github.com/EatOutPF/PF",
-    demo: "https://youtu.be/H_BctoijfFc?si=QHkK5DzDynoK1qiE&t=13",
-    image: "/projects/eatout3.avif",
-  },
-  {
-    title: "Aplicación web de recetas con búsqueda avanzada",
-    description:
-      "Plataforma para explorar y gestionar recetas combinando datos externos y propios. Incluye filtros, ordenamiento y una experiencia optimizada para encontrar contenido de forma rápida y sencilla.",
-    highlight: "Ejemplo de gestión de datos y experiencia de usuario",
-    repo: "https://github.com/LordPock/PI-Food",
-    demo: "https://pi-food-ten.vercel.app/",
-    image: "/projects/recipes1.avif",
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Portfolio() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="portfolio"
       className="min-h-[80vh] gap-6 pt-16 pb-24 px-4 bg-[#f7f7f7] max-w-4xl mx-auto scroll-mt-24"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-        Proyectos reales y soluciones implementadas
+        {t.portfolio.title}
       </h2>
       <p className="text-gray-600 text-center max-w-2xl mx-auto mb-10">
-  Algunos ejemplos de aplicaciones que desarrollé para resolver problemas concretos de negocio.
-</p>
+        {t.portfolio.description}
+      </p>
       <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-3 mb-8" />
 
       <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
-        {projects.map((project, index) => {
-          const isFeatured =
-            project.title === "Aplicación web de recetas con búsqueda avanzada";
+        {t.portfolio.projects.map((project, index) => {
+          const isFeatured = project.featured;
+
           return (
             <div
               key={index}
@@ -58,7 +33,7 @@ export default function Portfolio() {
               }`}
             >
               <span className="text-xs text-[#D4AF37] font-medium mb-2 block">
-                {isFeatured ? "CASO PRINCIPAL" : "CASO REAL"}
+                {isFeatured ? t.portfolio.featuredCase : t.portfolio.realCase}
               </span>
 
               <div className="mb-4 overflow-hidden rounded-lg">
@@ -93,7 +68,7 @@ export default function Portfolio() {
                   target="_blank"
                   className="flex-1 text-sm border border-[#D4AF37] px-3 py-1 rounded-md hover:bg-[#D4AF37] hover:text-black transition flex items-center justify-center"
                 >
-                  Ver código
+                  {t.portfolio.codeCta}
                 </a>
 
                 {project.demo && (
@@ -102,27 +77,26 @@ export default function Portfolio() {
                     target="_blank"
                     className="flex-1 text-sm border border-[#D4AF37] px-3 py-1 rounded-md hover:bg-[#D4AF37] hover:text-black transition text-center"
                   >
-                    {isFeatured ? "Ver funcionamiento" : "Ver demo"}
+                    {isFeatured ? t.portfolio.mainDemoCta : t.portfolio.demoCta}
                   </a>
                 )}
               </div>
             </div>
           );
         })}
-        
       </div>
       <p className="text-center text-gray-600 mt-12">
-  ¿Tenés una idea o necesitás una solución similar?
-</p>
+        {t.portfolio.question}
+      </p>
 
-<div className="flex justify-center mt-4">
-  <a
-    href="#contact"
-    className="bg-[#D4AF37] text-black px-6 py-3 rounded-md font-medium hover:bg-[#C9A227] transition"
-  >
-    Hablemos de tu proyecto
-  </a>
-</div>
+      <div className="flex justify-center mt-4">
+        <a
+          href="#contact"
+          className="bg-[#D4AF37] text-black px-6 py-3 rounded-md font-medium hover:bg-[#C9A227] transition"
+        >
+          {t.portfolio.contactCta}
+        </a>
+      </div>
     </section>
   );
 }

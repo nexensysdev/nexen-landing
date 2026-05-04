@@ -1,53 +1,26 @@
-type Service = {
-  title: string;
-  description: string;
-  icon: string;
-};
+"use client";
 
-const services: Service[] = [
-  {
-    title: "Landing Pages",
-    description:
-      "Páginas rápidas y optimizadas para convertir visitas en clientes.",
-    icon: "🌐",
-  },
-  {
-    title: "Aplicaciones Web",
-    description:
-      "Sistemas a medida para organizar y escalar procesos de negocio.",
-    icon: "⚙️",
-  },
-  {
-    title: "Automatizaciones",
-    description:
-      "Automatización de tareas para ahorrar tiempo y reducir errores.",
-    icon: "🔄",
-  },
-  {
-    title: "Integraciones",
-    description: "Conexión con APIs y servicios como Mercado Pago.",
-    icon: "🔌",
-  },
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Services() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="services"
       className="pt-16 pb-24 px-4 bg-white max-w-4xl mx-auto scroll-mt-24"
     >
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-        Servicios
+        {t.services.title}
       </h2>
       <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-3 mb-8" />
       <p className="text-gray-600 text-center max-w-xl mx-auto mb-12">
-        Soluciones pensadas para mejorar procesos, optimizar tiempo y generar
-        resultados concretos.
+        {t.services.description}
       </p>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {services.map((service, index) => {
-          const isFeatured = service.title === "Landing Pages";
+        {t.services.items.map((service, index) => {
+          const isFeatured = index === 0;
 
           return (
             <div
@@ -60,7 +33,7 @@ export default function Services() {
             >
               {isFeatured && (
                 <span className="text-xs text-[#D4AF37] font-medium mb-2 block">
-                  RECOMENDADO
+                  {t.services.recommended}
                 </span>
               )}
 

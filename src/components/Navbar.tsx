@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -28,16 +30,27 @@ export default function Navbar() {
   }, []);
 
   const linkClass = (id: string) => `nav-link ${active === id ? "active" : ""}`;
+  const languageButton = (
+    <button
+      type="button"
+      aria-label={t.nav.switchTo}
+      title={t.nav.switchTo}
+      onClick={toggleLanguage}
+      className="h-10 rounded-md border border-white/20 px-3 text-sm font-medium text-white transition hover:border-[#D4AF37] hover:text-[#D4AF37]"
+    >
+      {language.toUpperCase()}
+    </button>
+  );
 
   return (
     <nav className="sticky top-0 z-50 h-16 bg-[#121212]/90 backdrop-blur border-b border-white/10">
       <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-2 ">
         <div className="hidden md:flex gap-5 ">
           <a href="#services" className={linkClass("services")}>
-            Servicios
+            {t.nav.services}
           </a>
           <a href="#portfolio" className={linkClass("portfolio")}>
-            Proyectos
+            {t.nav.portfolio}
           </a>
         </div>
 
@@ -51,21 +64,24 @@ export default function Navbar() {
           />
         </a>
         <button
+          type="button"
+          aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
           className="md:hidden text-white text-2xl z-50"
           onClick={() => setOpen(!open)}
         >
           ☰
         </button>
-        <div className="hidden md:flex gap-5">
+        <div className="hidden md:flex gap-5 items-center">
           <a href="#about" className={linkClass("about")}>
-            Sobre mí
+            {t.nav.about}
           </a>
           <a
             href="#contact"
             className="flex items-center h-10 bg-[#D4AF37] text-black px-4 rounded-md font-medium hover:bg-[#C9A227] transition whitespace-nowrap"
           >
-            Contacto
+            {t.nav.contact}
           </a>
+          {languageButton}
         </div>
       </div>
       {open && (
@@ -75,25 +91,27 @@ export default function Navbar() {
             className="nav-link"
             onClick={() => setOpen(false)}
           >
-            Servicios
+            {t.nav.services}
           </a>
           <a
             href="#portfolio"
             className="nav-link"
             onClick={() => setOpen(false)}
           >
-            Proyectos
+            {t.nav.portfolio}
           </a>
           <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
-            Sobre mí
+            {t.nav.about}
           </a>
 
           <a
             href="#contact"
-            className="bg-[#D4AF37] text-black px-4 py-2 rounded-md font-medium onClick={() => setOpen(false)}"
+            className="bg-[#D4AF37] text-black px-4 py-2 rounded-md font-medium"
+            onClick={() => setOpen(false)}
           >
-            Contacto
+            {t.nav.contact}
           </a>
+          {languageButton}
         </div>
       )}
     </nav>
