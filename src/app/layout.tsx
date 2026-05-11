@@ -15,28 +15,65 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexensys.ar"),
+  applicationName: "neXen",
   title: "Desarrollo Web en Argentina | neXen",
   description:
-    "Creamos aplicaciones web modernas. Soluciones a medida para empresas y proyectos.",
+    "Desarrollo aplicaciones web, landing pages, automatizaciones e integraciones a medida para negocios y emprendedores en Argentina.",
+  keywords: [
+    "desarrollo web argentina",
+    "aplicaciones web a medida",
+    "landing pages",
+    "automatizaciones",
+    "integraciones Mercado Pago",
+    "React",
+    "Node.js",
+  ],
+  authors: [{ name: "neXen" }],
+  creator: "neXen",
+  publisher: "neXen",
   alternates: {
     canonical: "/",
+    languages: {
+      "es-AR": "/",
+      en: "/en",
+      "x-default": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     title: "Desarrollo Web en Argentina | neXen",
     description:
-      "Creamos aplicaciones web modernas. Soluciones a medida para empresas y proyectos.",
+      "Desarrollo aplicaciones web, landing pages, automatizaciones e integraciones a medida para negocios y emprendedores en Argentina.",
     url: "https://nexensys.ar",
     siteName: "neXen",
     locale: "es_AR",
+    alternateLocale: ["en_US"],
     type: "website",
     images: [
       {
-        url: "/og-image.jpg", // 👈 todavía no existe (lo creamos en el paso 2)
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "neXen - Desarrollo web",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Desarrollo Web en Argentina | neXen",
+    description:
+      "Desarrollo aplicaciones web, landing pages, automatizaciones e integraciones a medida para negocios y emprendedores en Argentina.",
+    images: ["/og-image.jpg"],
   },
 };
 

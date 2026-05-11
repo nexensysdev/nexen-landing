@@ -12,7 +12,6 @@ import {
 import {
   defaultLanguage,
   type Language,
-  isLanguage,
   translations,
 } from "@/lib/i18n";
 
@@ -28,22 +27,21 @@ const LANGUAGE_CHANGE_EVENT = "nexen-language-change";
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-function getBrowserLanguage(): Language {
+function getBrowserLanguage(routeLanguage: Language): Language {
   if (typeof window === "undefined") {
-    return defaultLanguage;
+    return routeLanguage;
   }
 
-  const savedLanguage = window.localStorage.getItem(STORAGE_KEY);
-
-  if (isLanguage(savedLanguage)) {
-    return savedLanguage;
-  }
-
-  const browserLanguage = window.navigator.language.toLowerCase();
-  return browserLanguage.startsWith("en") ? "en" : "es";
+  return window.location.pathname.startsWith("/en") ? "en" : "es";
 }
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LanguageProvider({
+  children,
+  routeLanguage = defaultLanguage,
+}: {
+  children: ReactNode;
+  routeLanguage?: Language;
+}) {
   const language = useSyncExternalStore(
     (onStoreChange) => {
       window.addEventListener("storage", onStoreChange);
@@ -54,8 +52,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         window.removeEventListener(LANGUAGE_CHANGE_EVENT, onStoreChange);
       };
     },
-    getBrowserLanguage,
-    () => defaultLanguage,
+    () => getBrowserLanguage(routeLanguage),
+    () => routeLanguage,
   );
 
   useEffect(() => {
@@ -65,6 +63,23 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const setLanguage = useCallback((nextLanguage: Language) => {
     window.localStorage.setItem(STORAGE_KEY, nextLanguage);
     window.dispatchEvent(new Event(LANGUAGE_CHANGE_EVENT));
+
+    const { pathname, hash } = window.location;
+    const spanishProjectMatch = pathname.match(/^\/proyectos\/([^/]+)$/);
+    const englishProjectMatch = pathname.match(/^\/en\/projects\/([^/]+)$/);
+    let nextPath = nextLanguage === "en" ? "/en" : "/";
+
+    if (nextLanguage === "en" && spanishProjectMatch) {
+      nextPath = `/en/projects/${spanishProjectMatch[1]}`;
+    }
+
+    if (nextLanguage === "es" && englishProjectMatch) {
+      nextPath = `/proyectos/${englishProjectMatch[1]}`;
+    }
+
+    if (window.location.pathname !== nextPath) {
+      window.location.href = `${nextPath}${hash}`;
+    }
   }, []);
 
   const value = useMemo<LanguageContextValue>(

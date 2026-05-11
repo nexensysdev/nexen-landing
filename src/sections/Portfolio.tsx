@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
+import { getProjectPath, projects } from "@/lib/projects";
 
 export default function Portfolio() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const projectCta = language === "en" ? "View case" : "Ver caso";
 
   return (
     <section
@@ -20,12 +23,13 @@ export default function Portfolio() {
       <div className="w-12 h-0.5 bg-[#D4AF37] mx-auto mt-3 mb-8" />
 
       <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
-        {t.portfolio.projects.map((project, index) => {
+        {projects.map((project) => {
           const isFeatured = project.featured;
+          const visibleLinks = project.links.filter((link) => !link.private);
 
           return (
             <div
-              key={index}
+              key={project.slug}
               className={`p-7 rounded-xl flex flex-col h-full transition duration-300 hover:shadow-xl ${
                 isFeatured
                   ? "bg-[#D4AF37]/4 border border-[#D4AF37] shadow-sm"
@@ -38,8 +42,8 @@ export default function Portfolio() {
 
               <div className="mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src={project.image}
-                  alt={project.title}
+                  src={project.images[0]}
+                  alt={project.title[language]}
                   width={500}
                   height={300}
                   className="w-full h-56 object-cover"
@@ -47,39 +51,40 @@ export default function Portfolio() {
               </div>
 
               <div className="h-5 mb-2">
-                {project.highlight && (
+                {project.highlight[language] && (
                   <span className="text-xs text-[#D4AF37] font-medium mb-2 block">
-                    {project.highlight}
+                    {project.highlight[language]}
                   </span>
                 )}
               </div>
 
               <h3 className="text-xl font-semibold mb-3 min-h-14 leading-snug">
-                {project.title}
+                {project.title[language]}
               </h3>
 
               <p className="text-gray-600 text-[15px] grow">
-                {project.description}
+                {project.shortDescription[language]}
               </p>
 
-              <div className="mt-5 flex gap-3 items-stretch">
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  className="flex-1 text-sm border border-[#D4AF37] px-3 py-1 rounded-md hover:bg-[#D4AF37] hover:text-black transition flex items-center justify-center"
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <Link
+                  href={getProjectPath(project.slug, language)}
+                  className="text-sm border border-[#D4AF37] bg-[#D4AF37] text-black px-3 py-2 rounded-md hover:bg-[#C9A227] transition flex items-center justify-center"
                 >
-                  {t.portfolio.codeCta}
-                </a>
+                  {projectCta}
+                </Link>
 
-                {project.demo && (
+                {visibleLinks.slice(0, 1).map((link) => (
                   <a
-                    href={project.demo}
+                    key={link.href}
+                    href={link.href}
                     target="_blank"
-                    className="flex-1 text-sm border border-[#D4AF37] px-3 py-1 rounded-md hover:bg-[#D4AF37] hover:text-black transition text-center"
+                    rel="noopener noreferrer"
+                    className="text-sm border border-[#D4AF37] px-3 py-2 rounded-md hover:bg-[#D4AF37] hover:text-black transition text-center"
                   >
-                    {isFeatured ? t.portfolio.mainDemoCta : t.portfolio.demoCta}
+                    {link.label[language]}
                   </a>
-                )}
+                ))}
               </div>
             </div>
           );

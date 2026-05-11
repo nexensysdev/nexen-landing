@@ -23,6 +23,7 @@ export default function Contact() {
         <a
           href="https://wa.me/5493462417291"
           target="_blank"
+          rel="noopener noreferrer"
           className="bg-[#D4AF37] text-black px-6 py-3 rounded-md font-medium hover:bg-[#C9A227] transition"
         >
           {t.contact.whatsappCta}

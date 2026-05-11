@@ -7,6 +7,8 @@ export default function Navbar() {
   const [active, setActive] = useState("home");
   const [open, setOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
+  const homePath = language === "en" ? "/en" : "/";
+  const sectionHref = (id: string) => `${homePath}#${id}`;
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -46,15 +48,15 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 h-16 bg-[#121212]/90 backdrop-blur border-b border-white/10">
       <div className="max-w-4xl mx-auto flex items-center justify-between px-4 py-2 ">
         <div className="hidden md:flex gap-5 ">
-          <a href="#services" className={linkClass("services")}>
+          <a href={sectionHref("services")} className={linkClass("services")}>
             {t.nav.services}
           </a>
-          <a href="#portfolio" className={linkClass("portfolio")}>
+          <a href={sectionHref("portfolio")} className={linkClass("portfolio")}>
             {t.nav.portfolio}
           </a>
         </div>
 
-        <a href="#home" className="flex flex-col items-center">
+        <a href={sectionHref("home")} className="flex flex-col items-center">
           <Image
             src="/logo.png"
             alt="neXen logo"
@@ -72,11 +74,11 @@ export default function Navbar() {
           ☰
         </button>
         <div className="hidden md:flex gap-5 items-center">
-          <a href="#about" className={linkClass("about")}>
+          <a href={sectionHref("about")} className={linkClass("about")}>
             {t.nav.about}
           </a>
           <a
-            href="#contact"
+            href={sectionHref("contact")}
             className="flex items-center h-10 bg-[#D4AF37] text-black px-4 rounded-md font-medium hover:bg-[#C9A227] transition whitespace-nowrap"
           >
             {t.nav.contact}
@@ -87,25 +89,29 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden flex flex-col items-center gap-4 py-4 bg-[#121212] border-t border-white/10">
           <a
-            href="#services"
+            href={sectionHref("services")}
             className="nav-link"
             onClick={() => setOpen(false)}
           >
             {t.nav.services}
           </a>
           <a
-            href="#portfolio"
+            href={sectionHref("portfolio")}
             className="nav-link"
             onClick={() => setOpen(false)}
           >
             {t.nav.portfolio}
           </a>
-          <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
+          <a
+            href={sectionHref("about")}
+            className="nav-link"
+            onClick={() => setOpen(false)}
+          >
             {t.nav.about}
           </a>
 
           <a
-            href="#contact"
+            href={sectionHref("contact")}
             className="bg-[#D4AF37] text-black px-4 py-2 rounded-md font-medium"
             onClick={() => setOpen(false)}
           >
