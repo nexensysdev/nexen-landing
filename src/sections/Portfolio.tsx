@@ -47,6 +47,7 @@ export default function Portfolio() {
                   alt={project.title[language]}
                   width={500}
                   height={300}
+                  unoptimized
                   className="w-full h-56 object-cover"
                 />
               </div>

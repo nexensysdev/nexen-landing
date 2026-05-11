@@ -93,6 +93,7 @@ export default function ProjectDetailPage({
                   width={900}
                   height={620}
                   priority
+                  unoptimized
                   className="aspect-[4/3] w-full object-cover"
                 />
               </div>
@@ -180,6 +181,7 @@ export default function ProjectDetailPage({
                     alt={`${project.title[language]} ${index + 2}`}
                     width={800}
                     height={560}
+                    unoptimized
                     className="aspect-[4/3] w-full object-cover"
                   />
                 </div>
