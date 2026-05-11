@@ -26,6 +26,7 @@ export default function Portfolio() {
         {projects.map((project) => {
           const isFeatured = project.featured;
           const visibleLinks = project.links.filter((link) => !link.private);
+          const hasDetail = Boolean(project.hasDetail);
 
           return (
             <div
@@ -66,26 +67,28 @@ export default function Portfolio() {
                 {project.shortDescription[language]}
               </p>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <Link
-                  href={getProjectPath(project.slug, language)}
-                  className="text-sm border border-[#D4AF37] bg-[#D4AF37] text-black px-3 py-2 rounded-md hover:bg-[#C9A227] transition flex items-center justify-center"
-                >
-                  {projectCta}
-                </Link>
-
-                {visibleLinks.slice(0, 1).map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm border border-[#D4AF37] px-3 py-2 rounded-md hover:bg-[#D4AF37] hover:text-black transition text-center"
+              {hasDetail && (
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <Link
+                    href={getProjectPath(project.slug, language)}
+                    className="text-sm border border-[#D4AF37] bg-[#D4AF37] text-black px-3 py-2 rounded-md hover:bg-[#C9A227] transition flex items-center justify-center"
                   >
-                    {link.label[language]}
-                  </a>
-                ))}
-              </div>
+                    {projectCta}
+                  </Link>
+
+                  {visibleLinks.slice(0, 1).map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm border border-[#D4AF37] px-3 py-2 rounded-md hover:bg-[#D4AF37] hover:text-black transition text-center"
+                    >
+                      {link.label[language]}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           );
         })}

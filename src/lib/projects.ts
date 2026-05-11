@@ -11,6 +11,7 @@ type ProjectLink = {
 
 export type Project = {
   slug: ProjectSlug;
+  hasDetail?: boolean;
   type: Record<Language, string>;
   title: Record<Language, string>;
   shortDescription: Record<Language, string>;
@@ -28,7 +29,70 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "melisa-encuaderna",
+    hasDetail: true,
+    featured: true,
+    type: {
+      es: "Ecommerce para emprendimiento",
+      en: "Ecommerce for small business",
+    },
+    title: {
+      es: "Melisa Encuaderna",
+      en: "Melisa Encuaderna",
+    },
+    shortDescription: {
+      es: "Ecommerce desarrollado para un emprendimiento artesanal, enfocado en catálogo de productos, experiencia mobile-first y presencia profesional online.",
+      en: "Ecommerce developed for a handmade business, focused on product catalog, mobile-first experience, and professional online presence.",
+    },
+    description: {
+      es: "Sitio ecommerce creado para profesionalizar la presencia digital de un emprendimiento de encuadernación artesanal, facilitando la exhibición de productos, la comunicación con clientes y la escalabilidad futura del negocio.",
+      en: "Ecommerce website built to professionalize the digital presence of a handmade bookbinding business, improving product showcase, customer communication, and future business scalability.",
+    },
+    highlight: {
+      es: "Proyecto real deployado y optimizado para SEO, responsive y experiencia mobile.",
+      en: "Real deployed project optimized for SEO, responsiveness, and mobile experience.",
+    },
+    role: {
+      es: "Diseño UX/UI, desarrollo full stack, integración con Supabase, optimización SEO técnica, arquitectura responsive y deployment en Vercel.",
+      en: "UX/UI design, full stack development, Supabase integration, technical SEO optimization, responsive architecture, and Vercel deployment.",
+    },
+    context: {
+      es: "El emprendimiento necesitaba independizarse parcialmente de redes sociales y contar con una plataforma propia donde mostrar productos, transmitir identidad de marca y facilitar el contacto con potenciales clientes.",
+      en: "The business needed to become less dependent on social media and have its own platform to showcase products, reinforce brand identity, and improve customer contact.",
+    },
+    solution: {
+      es: "Se desarrolló un ecommerce moderno con catálogo dinámico, navegación optimizada para dispositivos móviles, secciones enfocadas en conversión y estructura preparada para seguir escalando funcionalidades a futuro.",
+      en: "A modern ecommerce experience was developed with a dynamic catalog, mobile-optimized navigation, conversion-focused sections, and a scalable structure for future features.",
+    },
+    outcome: {
+      es: "El proyecto permitió transformar la presencia digital del emprendimiento en una experiencia más profesional, clara y preparada para crecimiento online.",
+      en: "The project transformed the business digital presence into a more professional, clear, and growth-ready online experience.",
+    },
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
+    images: [
+      "/projects/melisaencuaderna1.avif",
+      "/projects/melisaencuaderna2.avif",
+      "/projects/melisaencuaderna3.avif",
+      "/projects/melisaencuaderna4.avif",
+      "/projects/melisaencuaderna5.avif",
+    ],
+    links: [
+      {
+        kind: "repo",
+        label: { es: "Repositorio privado", en: "Private repository" },
+        href: "#repo-privado",
+        private: true,
+      },
+      {
+        kind: "demo",
+        label: { es: "Ver demo", en: "View demo" },
+        href: "https://www.melisaencuaderna.com.ar/",
+      },
+    ],
+  },
+  {
     slug: "eatout",
+    hasDetail: true,
     type: {
       es: "Aplicación mobile de cursada",
       en: "Course mobile app",
@@ -86,6 +150,7 @@ export const projects: Project[] = [
   },
   {
     slug: "recipes-app",
+    hasDetail: true,
     type: {
       es: "Aplicación web de cursada",
       en: "Course web app",
@@ -128,7 +193,6 @@ export const projects: Project[] = [
       "/projects/recipes2.avif",
       "/projects/recipes3.avif",
     ],
-    featured: true,
     links: [
       {
         kind: "repo",
@@ -142,80 +206,16 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    slug: "melisa-encuaderna",
-
-    type: {
-      es: "Ecommerce para emprendimiento",
-      en: "Ecommerce for small business",
-    },
-
-    title: {
-      es: "Melisa Encuaderna",
-      en: "Melisa Encuaderna",
-    },
-
-    shortDescription: {
-      es: "Ecommerce desarrollado para un emprendimiento artesanal, enfocado en catálogo de productos, experiencia mobile-first y presencia profesional online.",
-      en: "Ecommerce developed for a handmade business, focused on product catalog, mobile-first experience, and professional online presence.",
-    },
-
-    description: {
-      es: "Sitio ecommerce creado para profesionalizar la presencia digital de un emprendimiento de encuadernación artesanal, facilitando la exhibición de productos, la comunicación con clientes y la escalabilidad futura del negocio.",
-      en: "Ecommerce website built to professionalize the digital presence of a handmade bookbinding business, improving product showcase, customer communication, and future business scalability.",
-    },
-
-    highlight: {
-      es: "Proyecto real deployado y optimizado para SEO, responsive y experiencia mobile.",
-      en: "Real deployed project optimized for SEO, responsiveness, and mobile experience.",
-    },
-
-    role: {
-      es: "Diseño UX/UI, desarrollo full stack, integración con Supabase, optimización SEO técnica, arquitectura responsive y deployment en Vercel.",
-      en: "UX/UI design, full stack development, Supabase integration, technical SEO optimization, responsive architecture, and Vercel deployment.",
-    },
-
-    context: {
-      es: "El emprendimiento necesitaba independizarse parcialmente de redes sociales y contar con una plataforma propia donde mostrar productos, transmitir identidad de marca y facilitar el contacto con potenciales clientes.",
-      en: "The business needed to become less dependent on social media and have its own platform to showcase products, reinforce brand identity, and improve customer contact.",
-    },
-
-    solution: {
-      es: "Se desarrolló un ecommerce moderno con catálogo dinámico, navegación optimizada para dispositivos móviles, secciones enfocadas en conversión y estructura preparada para seguir escalando funcionalidades a futuro.",
-      en: "A modern ecommerce experience was developed with a dynamic catalog, mobile-optimized navigation, conversion-focused sections, and a scalable structure for future features.",
-    },
-
-    outcome: {
-      es: "El proyecto permitió transformar la presencia digital del emprendimiento en una experiencia más profesional, clara y preparada para crecimiento online.",
-      en: "The project transformed the business digital presence into a more professional, clear, and growth-ready online experience.",
-    },
-
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
-    images: [
-      "/projects/melisaencuaderna1.avif",
-      "/projects/melisaencuaderna2.avif",
-      "/projects/melisaencuaderna3.avif",
-      "/projects/melisaencuaderna4.avif",
-      "/projects/melisaencuaderna5.avif",
-    ],
-    links: [
-      {
-        kind: "repo",
-        label: { es: "Repositorio privado", en: "Private repository" },
-        href: "#repo-privado",
-        private: true,
-      },
-      {
-        kind: "demo",
-        label: { es: "Ver demo", en: "View demo" },
-        href: "https://www.melisaencuaderna.com.ar/",
-      },
-    ],
-  },
 ];
+
+export const detailedProjects = projects.filter((project) => project.hasDetail);
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function getDetailedProjectBySlug(slug: string) {
+  return detailedProjects.find((project) => project.slug === slug);
 }
 
 export function getProjectPath(slug: ProjectSlug, language: Language) {
